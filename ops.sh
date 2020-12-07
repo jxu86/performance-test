@@ -94,7 +94,7 @@ function qa2(){
 
 function qt(){
   script=${QUERY_TEST}
-  $EXE_WRK -t8 -c100 -d10 --timeout 10s --latency -s $script $HOST
+  $EXE_WRK -t8 -c10 -d60 --timeout 30s --latency -s $script $HOST
 }
 
 function rt(){
@@ -105,7 +105,7 @@ function rt(){
 
 function wt() {
   script=${INVOKE_TEST}
-  $EXE_WRK -t8 -c100 -d10 --timeout 10s --latency -s ${script} ${HOST}
+  $EXE_WRK -t8 -c10 -d60 --timeout 30s --latency -s ${script} ${HOST}
 }
 
 # c   :500
