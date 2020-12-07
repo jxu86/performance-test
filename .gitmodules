@@ -1,0 +1,3 @@
+[submodule "caliper/caliper-benchmarks"]
+	path = caliper/caliper-benchmarks
+	url = https://gitee.com/warship/caliper-benchmarks.git

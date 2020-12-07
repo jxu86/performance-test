@@ -1,0 +1,47 @@
+---
+test:
+  name: fabcar-benchmark
+  description: fabcar benchmark
+  workers:
+    type: local
+    number: 5
+  rounds:
+#    - label: Simple query test.
+#      txDuration: 10
+#      rateControl:
+#        type: fixed-rate
+#        opts:
+#          tps: 10
+#      arguments:
+#        assets: 1000
+#      callback: benchmarks/testquery.js
+
+    - label: query 1000101.
+      txDuration: 10
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 500
+      arguments:
+        assets: 1000
+      callback: benchmarks/query.js
+
+#    - label: Regiser 1000101
+#      txDuration: 10
+#      rateControl:
+#        type: fixed-rate
+#        opts:
+#          tps: 10
+#      arguments:
+#        assets: 1000
+#      callback: benchmarks/register.js
+
+monitor:
+  interval: 5
+  type: ["docker"]
+  docker:
+    containers: ["all"]
+
+observer:
+  type: local
+  interval: 5
