@@ -16,7 +16,7 @@ require("scripts/postdata")
 --     return wrk.format("POST", writeapi, nil, body)
 -- end
 writeapi = "/api/chaincode/invoke"
-counter = 300
+counter = 400
 bodyData = '{"args": "InvokeTest,%s,%s","chaincodeName": "land","channelId": 7,"created": 1606960883,"fcn": "InvokeTest","fcntype": "invoke","githubPath": "github.com/baaschaincodes/admin/j007/c2/land/1","id": 10,"policy": "OR(\'J007orgMSP.member\')","status": 1,"userAccount": "admin", "version": "1"}'
 -- wrk request interface
 request = function()

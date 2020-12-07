@@ -36,13 +36,14 @@ RW_8k="scripts/rw-8k.lua"
 function setAPI(){
   if [ -z $PORT ]; then 
     PORT="7992"
+    IP="127.0.0.1"
   fi
 
-  HOST="http://10.10.7.30:${PORT}"
+  HOST="http://${IP}:${PORT}"
   # INVOKE_API="http://localhost:${PORT}/api/v1/cc/invoke"
-  INVOKE_API="http://10.10.7.30:${PORT}/api/chaincode/invoke"
-  QUERY_API="http://10.10.7.30:${PORT}/api/chaincode/query"
-  REGSIGER_API="http://localhost:${PORT}/api/chaincode/invoke"
+  INVOKE_API="http://${IP}:${PORT}/api/chaincode/invoke"
+  QUERY_API="http://${IP}:${PORT}/api/chaincode/query"
+  REGSIGER_API="http://${IP}:${PORT}/api/chaincode/invoke"
 }
 
 function startMonitor(){
@@ -93,7 +94,7 @@ function qa2(){
 
 function qt(){
   script=${QUERY_TEST}
-  $EXE_WRK -t5 -c10 -d10 --timeout 10s --latency -s $script $HOST
+  $EXE_WRK -t8 -c100 -d10 --timeout 10s --latency -s $script $HOST
 }
 
 function rt(){
@@ -104,8 +105,7 @@ function rt(){
 
 function wt() {
   script=${INVOKE_TEST}
-  $EXE_WRK -t5 -c10 -d30 --timeout 30s --latency \
-      -s ${script} ${HOST}
+  $EXE_WRK -t8 -c100 -d10 --timeout 10s --latency -s ${script} ${HOST}
 }
 
 # c   :500
